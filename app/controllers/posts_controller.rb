@@ -21,22 +21,28 @@ class PostsController < ApplicationController
     render :new if @post.invalid?
   end
 
-  def edit
+  def edit 
   end
 
   def create
     @post = current_user.posts.build(post_params)
+    if params[:back]
+      render :new
+    else
       if @post.save
-        redirect_to posts_path, notice: "Post was successfully created." 
+        redirect_to posts_path, notice: "投稿完了" 
       else
         render :new
       end
+    end
   end
 
   def update
       if @post = Post.find(params[:id])
+        if @post.user_id == current_user.id
         @post.update(post_params)
-        redirect_to posts_path, notice: "Post was successfully updated." 
+        redirect_to posts_path, notice: "投稿を編集しました。" 
+        end
       else
         render :edit
       end

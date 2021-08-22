@@ -1,21 +1,5 @@
 <h1>Editing Post</h1>
-<%= form_with(model: @post, method: :put, local:true) do |form| %>
-  <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_area :caption %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render 'form', post: @post %>
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>
