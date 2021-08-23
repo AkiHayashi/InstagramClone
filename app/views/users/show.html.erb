@@ -5,22 +5,21 @@
 <%= link_to '投稿一覧', posts_path %>
 
 <h2>お気に入り一覧</h2>
-<thead>
 <table>
+  <thead>
+    <tr>
+      <th>投稿者</th>
+      <th>画像</th>
+      <th>キャプション</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= @favorites.each do |favorite| %>
   <tr>
-    <th>投稿者</th>
-    <th>画像</th>
-    <th>キャプション</th>
+    <td><%= favorite.post.user.name%></td>
+    <td><%= image_tag favorite.post.image.url%></td>
+    <td><%= favorite.post.caption%></td>
   </tr>
-</thead>
-
-<tbody>
-<%= @favorites.each do |favorite| %>
-  <tr>
-    <th><%= favorite.post.user.name%></th>
-    <th><%= image_tag favorite.post.image.url%></th>
-    <th><%= favorite.post.caption%></th>
-  </tr>
+  <% end %>
+  <tbody>
 </table>
-<% end %>
-<tbody>

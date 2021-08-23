@@ -1,4 +1,34 @@
-html {
-  background-image: url('/rainbow.jpg');
-  background-position: 100%;
+body {
+  background-image: url('/ig.jpg');
+  background-position: center;
+  color: rgb(255, 255, 255);
+}
+
+
+.container{
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.m-0{
+  height: 50px;
+}
+
+h1{
+  font-size: larger;
+}
+
+footer {
+  bottom: 0;
+  margin-bottom: 0px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  width: 100%;
+}
+
+footer p {
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
