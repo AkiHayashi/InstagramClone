@@ -1,2 +1,26 @@
 <h1><%= @user.name %>のページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
+<p>Image: <%= image_tag(@user.image_name.url) if @user.image_name && @user.image_name.url %></p>
+<%= link_to 'プロフィールを編集する', edit_user_path(@user.id) %>
+<%= link_to '投稿一覧', posts_path %>
+
+<h2>お気に入り一覧</h2>
+<thead>
+<table>
+  <tr>
+    <th>投稿者</th>
+    <th>画像</th>
+    <th>キャプション</th>
+  </tr>
+</thead>
+
+<tbody>
+<%= @favorites.each do |favorite| %>
+  <tr>
+    <th><%= favorite.post.user.name%></th>
+    <th><%= image_tag favorite.post.image.url%></th>
+    <th><%= favorite.post.caption%></th>
+  </tr>
+</table>
+<% end %>
+<tbody>

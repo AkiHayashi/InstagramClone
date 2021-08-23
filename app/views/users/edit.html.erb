@@ -1,14 +1,5 @@
-<h1>Sign up</h1>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<h1>編集<h1>
+
 <%= form_with(model: @user, local: true) do |f| %>  
   <%= f.label :name %>
   <%= f.text_field :name %><br>
@@ -20,5 +11,8 @@
   <%= f.password_field :password_confirmation %><br>
   <%= f.label :image_name %>
   <%= f.file_field :image_name%><br>
-  <%= f.submit "Create my account" %>
+  <%= f.hidden_field :image_name_cache %>
+  <%= f.submit "変更"%>
 <% end %>
+
+<%= link_to 'Back', @user %>
